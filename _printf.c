@@ -4,7 +4,7 @@
   * _printf - function that prints anything
   * @format: charater pointer that takes strings as argument
   *
-  * return: integer value
+  * Return: integer value
   */
 int _printf(const char *format, ...)
 {

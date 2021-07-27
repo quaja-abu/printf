@@ -1,0 +1,19 @@
+./* This is the manpage of the _printf function created for our group project
+.TH printf 1 "2021-07-27" "V1.0" "_printf man page"
+
+.SH NAME
+_printf
+
+.SH SYNOPSIS
+
+.SH DESCRIPTION
+
+.SH EXAMPLES
+
+.SH SEE ALSO
+
+.SH BUGS
+
+.SH AUTHORS
+
+.SH COPYRIGHT

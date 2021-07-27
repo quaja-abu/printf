@@ -1,5 +1,4 @@
 #include "holberton.h"
-
 /**
   * _printf - function that prints anything
   * @format: charater pointer that takes strings as argument
@@ -10,10 +9,13 @@ int _printf(const char *format, ...)
 {
 	const char *str, *s;
 	va_list args;
-	int i = 0, val;
+	int len; 
+	int val;
+	int i;
 
+	len = _strlen(format);
 	va_start(args, format);
-	for (str = format; *str != '\0'; str++)
+	for (str = 0; str != '\0'; str++)
 	{
 		while (*str != '%')
 		{

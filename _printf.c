@@ -2,68 +2,71 @@
 int _strlen(const char *);
 void _putchar(const char *);
 void print_number(int);
+
 /**
- *   * _strlen - function to find string length
- *     * @s: character pointer
- *       *
- *         * Return: integer value
- *           */
+ ** _strlen - function to find string length
+ ** @s: character pointer
+ **
+ ** Return: integer value
+ **/
 
 int _strlen(const char *s)
 {
-	        int val = 0;
-
-		        while (s[val] != '\0')
-				        {
-						                val++;
-								        }
-			        return (val);
+	int val = 0;	
+	while (s[val] != '\0')
+	{
+		val++;
+	}
+	return (val);
 }
+
 /**
- *   * _putchar - function to display string
- *     * @s: character pointer
- *       *
- *         * Return: Nothing
- *           */
+ ** _putchar - function to display string
+ ** @s: character pointer
+ **
+ ** Return: Nothing
+ **/
 
 void _putchar(const char *s)
 {
-	        while (*s)
-			        {
-					                putchar(*s);
-							                s++;
-									        }
+	while (*s)
+	{
+		putchar(*s);
+		s++;
+	}
 }
+
 /**
- *  * print_number - to print any number using _putchar
- *   * @n: integer value
- *    */
+ ** print_number - to print any number using _putchar
+ ** @n: integer value
+ **/
 
 void print_number(int n)
 {
-
-	        if (n == 0)
-			        {
-					                putchar('0');
-							                return;
-									        }
-		        if (n < 0)
-				        {
-						                putchar('-');
-								                n = -n;
-										        }
-			        if (n / 10)
-					        {
-							                print_number(n / 10);
-									        }
-				        putchar(n % 10 + '0');
+	if (n == 0)
+	{
+		putchar('0');
+		return;
+	}
+	if (n < 0)
+	{
+		putchar('-');
+		n = -n;
+	}
+	if (n / 10)
+	{
+		print_number(n / 10);
+	}
+	putchar(n % 10 + '0');
 }
+
 /**
   * _printf - function that prints anything
   * @format: charater pointer that takes strings as argument
   *
   * Return: integer value
   */
+
 int _printf(const char *format, ...)
 {
 	const char *str, *s;
@@ -94,7 +97,7 @@ int _printf(const char *format, ...)
 				s = va_arg(args, char *);
 				len += _strlen(s);
 				len = len - 2;
-				_putchar(s);
+				putchar(s);
 				break;
 			case '%':
 				putchar(*str);

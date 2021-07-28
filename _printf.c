@@ -1,6 +1,7 @@
 #include "holberton.h"
 int _strlen(const char *);
 void _putchar(const char *);
+void print_number(int);
 
 /**
   * _printf - function that prints anything
@@ -42,6 +43,14 @@ int _printf(const char *format, ...)
 				break;
 			case '%':
 				putchar(*str);
+				break;
+			case 'd':
+				val = va_arg(args, int);
+				print_number(val);
+				break;
+			case 'i':
+				val = va_arg(args, int);
+				print_number(val);
 				break;
 			default:
 				putchar('%');
@@ -85,3 +94,28 @@ void _putchar(const char *s)
 		s++;
 	}
 }
+/**
+ * print_number - to print any number using _putchar
+ * @n: integer value
+ */
+
+void print_number(int n)
+{
+
+	if (n == 0)
+	{
+		putchar('0');
+		return;
+	}
+	if (n < 0)
+	{
+		putchar('-');
+		n = -n;
+	}
+	if (n / 10)
+	{
+		print_number(n / 10);
+	}
+	putchar(n % 10 + '0');
+}
+

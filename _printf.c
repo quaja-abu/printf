@@ -1,6 +1,5 @@
 #include "holberton.h"
 int _strlen(const char *);
-void _putchar(const char *);
 void print_number(int);
 
 /**
@@ -24,7 +23,7 @@ int _printf(const char *format, ...)
 	{
 		while (*str != '%')
 		{
-			putchar(*str);
+			_putchar(*str);
 			if (*str == '\0')
 				break;
 			str++;
@@ -36,7 +35,7 @@ int _printf(const char *format, ...)
 		{
 			case 'c':
 				val = va_arg(args, int);
-				putchar(val);
+				_putchar(val);
 				break;
 			case 's':
 				s = va_arg(args, char *);
@@ -44,10 +43,14 @@ int _printf(const char *format, ...)
 					s = "(null)";
 				len += _strlen(s);
 				len = len - 2;
-				_putchar(s);
+				while (*s)
+				{
+					_putchar(*s);
+					s++;
+				}
 				break;
 			case '%':
-				putchar(*str);
+				_putchar(*str);
 				break;
 			case 'd':
 				val = va_arg(args, int);
@@ -58,8 +61,8 @@ int _printf(const char *format, ...)
 				print_number(val);
 				break;
 			default:
-				putchar('%');
-				putchar(*str);
+				_putchar('%');
+				_putchar(*str);
 				break;
 		}
 	}
@@ -84,21 +87,7 @@ int _strlen(const char *s)
 	}
 	return (val);
 }
-/**
-  * _putchar - function to display string
-  * @s: character pointer
-  *
-  * Return: Nothing
-  */
 
-void _putchar(const char *s)
-{
-	while (*s)
-	{
-		putchar(*s);
-		s++;
-	}
-}
 /**
  * print_number - to print any number using _putchar
  * @n: integer value
@@ -111,17 +100,17 @@ void print_number(int n)
 	x = n;
 	if (n == 0)
 	{
-		putchar('0');
+		_putchar('0');
 		return;
 	}
 	if (n < 0)
 	{
-		putchar(45);
+		_putchar(45);
 		x = -n;
 	}
 	if (x / 10)
 	{
 		print_number(x / 10);
 	}
-	putchar((x % 10) + '0');
+	_putchar((x % 10) + '0');
 }

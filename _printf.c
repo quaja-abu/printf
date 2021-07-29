@@ -9,6 +9,7 @@ void print_number(int);
   *
   * Return: integer value
   */
+
 int _printf(const char *format, ...)
 {
 	const char *str, *s;
@@ -43,7 +44,7 @@ int _printf(const char *format, ...)
 					s = "(null)";
 				len += _strlen(s);
 				len = len - 2;
-				_putchar(s);
+				putchar(s);
 				break;
 			case '%':
 				putchar(*str);
@@ -124,4 +125,3 @@ void print_number(int n)
 	}
 	putchar((x % 10) + '0');
 }
-

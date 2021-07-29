@@ -44,7 +44,7 @@ int _printf(const char *format, ...)
 					s = "(null)";
 				len += _strlen(s);
 				len = len - 2;
-				putchar(s);
+				_putchar(s);
 				break;
 			case '%':
 				putchar(*str);

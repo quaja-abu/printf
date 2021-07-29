@@ -15,6 +15,8 @@ int _printf(const char *format, ...)
 	va_list args;
 	int val, len = 0;
 
+	if (format == NULL)
+		return (-1);
 	len = _strlen(format);
 	va_start(args, format);
 	for (str = format; *str != '\0'; str++)
@@ -37,6 +39,8 @@ int _printf(const char *format, ...)
 				break;
 			case 's':
 				s = va_arg(args, char *);
+				if (s == NULL)
+					s = "(null)";
 				len += _strlen(s);
 				len = len - 2;
 				_putchar(s);
@@ -101,7 +105,9 @@ void _putchar(const char *s)
 
 void print_number(int n)
 {
+	unsigned int x;
 
+	x = n;
 	if (n == 0)
 	{
 		putchar('0');
@@ -109,13 +115,13 @@ void print_number(int n)
 	}
 	if (n < 0)
 	{
-		putchar('-');
-		n = -n;
+		putchar(45);
+		x = -n;
 	}
-	if (n / 10)
+	if (x / 10)
 	{
-		print_number(n / 10);
+		print_number(x / 10);
 	}
-	putchar(n % 10 + '0');
+	putchar((x % 10) + '0');
 }
 

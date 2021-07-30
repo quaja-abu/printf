@@ -6,5 +6,7 @@
 
 int _printf(const char *format, ...);
 int _putchar(char);
+int _strlen(const char *);
+void print_number(int);
 
 #endif /* HOLBERTON_H */

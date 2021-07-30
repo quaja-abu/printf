@@ -40,11 +40,11 @@ int _strlen(const char *s)
 }
 
 /**
- *   * _printf - function that prints anything
- *     * @format: charater pointer that takes strings as argument
- *       *
- *         * Return: integer value
- *           */
+ *  _printf - function that prints anything
+ *  @format: charater pointer that takes strings as argument
+ * 
+ *  * Return: integer value
+ **/
 int _printf(const char *format, ...)
 {
 	const char *str, *s;
@@ -76,7 +76,9 @@ int _printf(const char *format, ...)
 			case 's':
 				s = va_arg(args, char *);
 				if (s == NULL)
+				{
 					s = "(null)";
+				}
 				len += _strlen(s);
 				len = len - 2;
 				while (*s)

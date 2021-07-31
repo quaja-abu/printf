@@ -14,7 +14,10 @@ int _printf(const char *format, ...)
 
 	if (format == NULL)
 		return (-1);
+
 	len += _strlen(format);
+	if (*format == '%' && len == 1)
+		return (-1);
 	va_start(args, format);
 	for (str = format; *str != '\0'; str++)
 	{
@@ -70,11 +73,17 @@ int _printf(const char *format, ...)
 
 int _strlen(const char *s)
 {
-	int val = 0;
+	int val = 0, i = 0;
 
 	while (s[val] != '\0')
 	{
 		++val;
+	}
+	while (s[i] != '\0')
+	{
+		if (s[i] == '%' && s[i + 1] == 's')
+			val--;
+		i++;
 	}
 	return (val);
 }

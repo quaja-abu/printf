@@ -1,14 +1,11 @@
 #include "holberton.h"
-int _strlen(const char *);
-void print_number(int);
 
 /**
-  * _printf - function that prints anything
-  * @format: charater pointer that takes strings as argument
-  *
-  * Return: integer value
-  */
-
+ *  _printf - function that prints anything
+ *  @format: charater pointer that takes strings as argument
+ * 
+ *  * Return: integer value
+ **/
 int _printf(const char *format, ...)
 {
 	const char *str, *s;
@@ -41,7 +38,9 @@ int _printf(const char *format, ...)
 			case 's':
 				s = va_arg(args, char *);
 				if (s == NULL)
+				{
 					s = "(null)";
+				}
 				len += _strlen(s);
 				while (*s)
 				{

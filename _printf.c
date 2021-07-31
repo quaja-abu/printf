@@ -1,9 +1,9 @@
 #include "holberton.h"
-
+int print_s(const char *, int);
 /**
  *  _printf - function that prints anything
  *  @format: charater pointer that takes strings as argument
- * 
+ *
  *  * Return: integer value
  **/
 int _printf(const char *format, ...)
@@ -37,16 +37,7 @@ int _printf(const char *format, ...)
 				break;
 			case 's':
 				s = va_arg(args, char *);
-				if (s == NULL)
-				{
-					s = "(null)";
-				}
-				len += _strlen(s);
-				while (*s)
-				{
-					_putchar(*s);
-					s++;
-				}
+				len = print_s(s, len);
 				break;
 			case '%':
 				_putchar(*str);
@@ -113,4 +104,23 @@ void print_number(int n)
 		print_number(x / 10);
 	}
 	_putchar((x % 10) + '0');
+}
+/**
+  * print_s - function to print the string
+  * @s: character constant pointer
+  * @len: string length
+  *
+  * Return: string length
+  */
+int print_s(const char *s, int len)
+{
+	if (s == NULL)
+		s = "(null)";
+	len += _strlen(s);
+		while (*s)
+		{
+			_putchar(*s);
+			s++;
+		}
+	return (len);
 }

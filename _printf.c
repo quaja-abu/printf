@@ -17,13 +17,14 @@ int _printf(const char *format, ...)
 
 	if (format == NULL)
 		return (-1);
-	len = _strlen(format);
+	len += _strlen(format);
 	va_start(args, format);
 	for (str = format; *str != '\0'; str++)
 	{
 		while (*str != '%')
 		{
-			_putchar(*str);
+			if (*str != '\0')
+				_putchar(*str);
 			if (*str == '\0')
 				break;
 			str++;
@@ -42,7 +43,6 @@ int _printf(const char *format, ...)
 				if (s == NULL)
 					s = "(null)";
 				len += _strlen(s);
-				len = len - 2;
 				while (*s)
 				{
 					_putchar(*s);
@@ -65,6 +65,7 @@ int _printf(const char *format, ...)
 				_putchar(*str);
 				break;
 		}
+		len--;
 	}
 	va_end(args);
 	return (len);
@@ -83,7 +84,7 @@ int _strlen(const char *s)
 
 	while (s[val] != '\0')
 	{
-		val++;
+		++val;
 	}
 	return (val);
 }
